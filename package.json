@@ -4,7 +4,7 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "npx eslint ./routes ./controller ./model ./utils app.js",
         "start": "nodemon -w app.js",
         "dev": "nodemon -e js,mjs,json,ejs,html,css app.js"
     },

@@ -5,7 +5,6 @@
 const xController = require('../controller/xController');
 
 //? Core
-const path = require("node:path");
 
 //? NPM
 const express = require("express");
