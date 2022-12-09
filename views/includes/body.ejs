@@ -1,0 +1,77 @@
+<div class="main bg-dark">
+    <div class="todoReq bg-dark">
+        <h1 class="text-white p-2 m-3">
+            Welcome to <strong class="text-danger">TODO</strong> Application
+        </h1>
+        <div class="badge">
+            <button type="button" class="btn btn-success position-relative m-3">
+                Complete
+                <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                    0 <%#= compeleted %> 
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+            <button type="button" class="btn btn-warning position-relative m-3">
+                Remain
+                <span
+                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                >
+                    0 <%#= remained %> 
+                    <span class="visually-hidden">unread messages</span>
+                </span>
+            </button>
+        </div>
+        <div class="todoInput p-2 rounded-1">
+            <div class="input-group">
+                <input
+                    type="text"
+                    class="form-control p-3 searchInput"
+                    placeholder="New Task ..."
+                    aria-label="New Task ..."
+                    aria-describedby="basic-addon2"
+                    autocomplete="off"
+                    name="todo"
+                />
+                <div class="input-group-append">
+                    <button
+                        class="btn btn-dark rounded-0 p-3 searchBtn"
+                        type="button"
+                    >
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrow">
+        <i class="fa fa-arrow-right arrowRight"></i>
+    </div>
+    <!-- --------------------------------Tasks -->
+    <div class="todoRes text-bg-secondary">
+        <div class="alert alert-success m-5 no-task" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>
+                You have completed all the tasks, if you have new work to do, we
+                will be happy to help you manage them.
+            </p>
+            <hr />
+            <p class="mb-0">
+                With TODO, we are always with you in handling your work.
+            </p>
+        </div>
+
+        <!-- <div class="alert alert-primary m-3 tasks" role="alert">
+            <div class="task-text m-1 p-1">Doing my home work</div>
+            <div class="task-handle m-1 p-1">
+                <a href="/complete">
+                    <i class="fa fa-check mx-2 p-1 text-success"></i>
+                </a>
+                <a href="/delete">
+                    <i class="fa fa-times mx-2 p-1 text-danger"></i>
+                </a>
+            </div>
+        </div> -->
+    </div>
+</div>

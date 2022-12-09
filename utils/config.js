@@ -4,7 +4,7 @@
 const path = require("node:path");
 
 const rootDir = path.dirname(require.main.filename);
-const port = process.env.PORT | 3000;
+const port = process.env.PORT | 8080;
 const hostname = "127.0.0.1";
 const appName = "TODO";
 
