@@ -2,7 +2,7 @@
 
 //* ---------| IMPORTED MODULES |-
 //? Custom
-const xController = require('../controller/xController');
+const todoController = require("../controller/todoController");
 
 //? Core
 
@@ -10,11 +10,16 @@ const xController = require('../controller/xController');
 const express = require("express");
 const router = express.Router();
 
-
 //* ---------| Method:Route |-
-//? -----| Get:/ |-
-router.get("/", xController.mainRespond);
+//? CRUD Operations
+router.get("/", todoController.readHandler);
+router.post("/", todoController.createtHandler);
+router.get("/delete/:id", todoController.deleteHandler);
+router.get("/complete/:id", todoController.completeHandler);
 
+//? API OPERATION /api
+router.get("/api", todoController.staticApiHandler);
+router.get("/api/:id", todoController.dynamicApiHandler);
 
 //* ---------| EXPORT MODULE |-
 module.exports = router;

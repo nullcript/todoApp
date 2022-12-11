@@ -9,7 +9,7 @@
                 <span
                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 >
-                    0 <%#= compeleted %> 
+                    <%= completed %>
                     <span class="visually-hidden">unread messages</span>
                 </span>
             </button>
@@ -18,60 +18,65 @@
                 <span
                     class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
                 >
-                    0 <%#= remained %> 
+                    <%= remained %>
                     <span class="visually-hidden">unread messages</span>
                 </span>
             </button>
         </div>
-        <div class="todoInput p-2 rounded-1">
-            <div class="input-group">
+        <!-- ----------------------------Form -->
+        <form
+            action="/"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            autocomplete="off"
+        >
+            <div class="form-floating mb-3 mt-3">
                 <input
                     type="text"
-                    class="form-control p-3 searchInput"
-                    placeholder="New Task ..."
-                    aria-label="New Task ..."
-                    aria-describedby="basic-addon2"
-                    autocomplete="off"
-                    name="todo"
+                    class="form-control"
+                    id="task"
+                    placeholder="New Task"
+                    name="text"
                 />
-                <div class="input-group-append">
-                    <button
-                        class="btn btn-dark rounded-0 p-3 searchBtn"
-                        type="button"
-                    >
-                        <i class="fa fa-plus"></i>
-                    </button>
-                </div>
+                <label for="task">New Task</label>
+                <button type="submit" class="btn btn-primary">Add</button>
             </div>
-        </div>
+        </form>
     </div>
     <div class="arrow">
         <i class="fa fa-arrow-right arrowRight"></i>
     </div>
     <!-- --------------------------------Tasks -->
     <div class="todoRes text-bg-secondary">
-        <div class="alert alert-success m-5 no-task" role="alert">
-            <h4 class="alert-heading">Well done!</h4>
-            <p>
-                You have completed all the tasks, if you have new work to do, we
-                will be happy to help you manage them.
-            </p>
-            <hr />
-            <p class="mb-0">
-                With TODO, we are always with you in handling your work.
-            </p>
-        </div>
-
-        <!-- <div class="alert alert-primary m-3 tasks" role="alert">
-            <div class="task-text m-1 p-1">Doing my home work</div>
-            <div class="task-handle m-1 p-1">
-                <a href="/complete">
-                    <i class="fa fa-check mx-2 p-1 text-success"></i>
-                </a>
-                <a href="/delete">
-                    <i class="fa fa-times mx-2 p-1 text-danger"></i>
-                </a>
+        <% if (readData.length > 0) { %>
+            <% for (let task of readData ) { %>
+                <div class="alert alert-<%= task.completed ? "danger stroke" : "primary" %> m-3 tasks" role="alert">
+                    <div class="task-text m-1 p-1"><mark class="p-2 rounded-1 mark"><%= task.text %></mark>
+                        <br><hr>
+                        <strong>CreatedAt : </strong> <em><%= task.createdAt %> </em>
+                    </div>
+                    <div class="task-handle m-1 p-1">
+                        <a class="<%= task.completed ? "disactive" : "active" %>" href="/complete/<%= task.id %>">
+                            <i class="fa fa-check mx-2 p-1 text-success"></i>
+                        </a>
+                        <a href="/delete/<%= task.id %>">
+                            <i class="fa fa-times mx-2 p-1 text-danger"></i>
+                        </a>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <div class="alert alert-success m-5 no-task" role="alert">
+                <h4 class="alert-heading">Well done!</h4>
+                <p>
+                    You have completed all the tasks, if you have new work to do, we
+                    will be happy to help you manage them.
+                </p>
+                <hr />
+                <p class="mb-0">
+                    With TODO, we are always with you in handling your work.
+                </p>
             </div>
-        </div> -->
+        <% } %>
     </div>
 </div>

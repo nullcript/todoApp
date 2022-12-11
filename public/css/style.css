@@ -63,21 +63,21 @@ body {
 .todoInput {
     width: 80%;
     height: 350px;
-    background-color:#6c757d;
+    background-color: #6c757d;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .searchInput {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.searchBtn{
+.searchBtn {
     width: 65px;
 }
 
-.searchBtn:hover{
+.searchBtn:hover {
     cursor: pointer !important;
 }
 
@@ -88,10 +88,8 @@ body {
 
 .input-group {
     box-sizing: border-box;
-    margin : 0 40px;
+    margin: 0 40px;
 }
-
-
 
 /* -----------Tasks */
 
@@ -122,7 +120,7 @@ body {
     text-decoration: none;
 }
 
-.btn:hover{
+.btn:hover {
     cursor: default;
 }
 
@@ -143,7 +141,7 @@ body {
         justify-content: center;
         align-items: center;
     }
-    
+
     .todoRes {
         width: 100%;
         min-height: 500px;
@@ -154,24 +152,52 @@ body {
     }
 }
 
+form {
+    width: 75%;
+    margin: 15px;
+}
+
+button.btn.btn-primary {
+    width: 120px;
+    padding: 7px 15px;
+    display: block;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+.mark {
+    max-width: 100%;
+    display: block;
+    word-break: break-all;
+    font-family: tahoma;
+}
+
+.stroke {
+    text-decoration: line-through black;
+}
+
+.disactive {
+    display: none !important;
+}
+
 @media screen and (max-width: 480px) {
-    .searchInput{
+    .searchInput {
         font-size: 14px;
         padding: 10px !important;
     }
 
-    .searchBtn{
+    .searchBtn {
         width: 45px;
     }
-    
+
     .fa-plus {
         font-size: 16px;
         margin-top: 5px;
     }
-    
+
     .input-group {
         box-sizing: border-box;
-        margin : 0 40px;
+        margin: 0 40px;
         width: 100%;
     }
 }
