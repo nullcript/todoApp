@@ -7,10 +7,12 @@ exports.readHandler = async (req, res) => {
         let [readData] = await Todo.read();
         console.log(`READ command done successfully`);
 
+        let completedTasks = readData.filter((val) => val.completed !== 0);
+
         res.render("index", {
             readData,
-            completed: readData.length,
-            remained: readData.length,
+            completed: completedTasks.length,
+            remained: readData.length - completedTasks.length,
         });
     } catch (error) {
         console.log(error);
